@@ -1,0 +1,25 @@
+phy0 {
+	compatible = "ulpi-phy";
+	#phy-cells = <0x0>;
+	reg = <0xe0002000 0x1000>;
+	view-port = <0x170>;
+	drv-vbus;
+	linux,phandle = <0x7>;
+	phandle = <0x7>;
+};
+mdio {
+compatible = "cdns,macb-mdio";
+reg = <0xe000b000 0x1000>;
+clocks = <0x1 0x1e 0x1 0x1e 0x1 0xd>;
+clock-names = "pclk", "hclk", "tx_clk";
+#address-cells = <0x1>;
+#size-cells = <0x0>;
+
+	ethernet-phy@3 {
+		reg = <0x3>;
+		linux,phandle = <0x5>;
+		phandle = <0x5>;
+	};
+};
+
+
