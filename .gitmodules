@@ -1,0 +1,3 @@
+[submodule "bsp-xilinx"]
+	path = bsp-xilinx
+	url = https://github.com/enclustra-bsp/bsp-xilinx.git
