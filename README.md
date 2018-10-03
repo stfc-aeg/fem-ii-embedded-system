@@ -1,5 +1,5 @@
 # fem-ii-embedded-system
-contains the elements to generate an embedded system from scratch.
+This repository contains the elements to generate an embedded system from scratch.
 
 This repository includes the following projects / directories:
 
