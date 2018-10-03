@@ -186,8 +186,6 @@ architecture structure of system_top is
 			gpio_tri_o			: out std_logic_vector ( 7 downto 0 );
 			UART_0_txd			: out std_logic;
 			UART_0_rxd			: in std_logic;
-			SDIO0_CDN           : in  STD_LOGIC;
-            SDIO0_WP            : in  STD_LOGIC;
 			IIC_0_sda_i			: in std_logic;
 			IIC_0_sda_o			: out std_logic;
 			IIC_0_sda_t			: out std_logic;
@@ -266,8 +264,6 @@ architecture structure of system_top is
 	signal LedCount			: unsigned (23 downto 0);
 	signal GPIO				: std_logic_vector (7 downto 0);
 	
-	signal SDIO0_CDN_s      : std_logic := '0';
-    signal SDIO0_WP_s       : std_logic := '0';
     signal control_reg      : std_logic_vector (8 downto 0);
 
     signal spi_0_io0_i : STD_LOGIC;
@@ -327,8 +323,6 @@ begin
 			RESET_N				=> Rst_N,
 			UART_0_rxd			=> UART0_RX,
 			UART_0_txd			=> UART0_TX,
-			SDIO0_CDN           => SDIO0_CDN_s,
-            SDIO0_WP            => SDIO0_WP_s,
 			gpio_tri_o			=> GPIO,
 			IIC_0_sda_i 		=> IIC_0_sda_i,
 			IIC_0_sda_o  		=> IIC_0_sda_o,
