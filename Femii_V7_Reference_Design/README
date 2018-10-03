@@ -1,0 +1,4 @@
+project based on Vivado 2015-2
+open vivado at this level and using the tcl shell run the re-create-project.tcl script
+this will generate a project for you, then modify as you wish not forgetting to
+feed the information back to the Mars_ZX3 reference design if you want to access addtional registers etc
