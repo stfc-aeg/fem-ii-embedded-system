@@ -3,7 +3,6 @@ cp ../rootfs.tar /media/root/
 cd /media/root/
 tar -xpf rootfs.tar
 cd -
-cp -r ../home/ /media/root/
 cp -r ../root/* /media/root/root/
 rm -rf /media/root/etc/resolv.conf /media/root/etc/hostname /media/root/etc/network/interfaces
 cp hostname ../resolv.conf ../ntp.conf /media/root/etc
