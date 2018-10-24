@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7vx690tffg1930-2" LaunchTime="1538583442">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="RDI-RDI" Name="c2c_top_wrapper.vdi"/>
+  <File Type="BG-DRC" Name="c2c_top_wrapper.drc"/>
+  <File Type="BG-BGN" Name="c2c_top_wrapper.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="c2c_top_wrapper.sysdef"/>
+  <File Type="BITSTR-MMI" Name="c2c_top_wrapper.mmi"/>
+  <File Type="BITSTR-BMM" Name="c2c_top_wrapper_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="c2c_top_wrapper.nky"/>
+  <File Type="BITSTR-RBT" Name="c2c_top_wrapper.rbt"/>
+  <File Type="BITSTR-MSK" Name="c2c_top_wrapper.msk"/>
+  <File Type="BG-BIN" Name="c2c_top_wrapper.bin"/>
+  <File Type="BG-BIT" Name="c2c_top_wrapper.bit"/>
+  <File Type="PLACE-SIMILARITY" Name="c2c_top_wrapper_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="c2c_top_wrapper_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="c2c_top_wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-DCP" Name="c2c_top_wrapper_placed.dcp"/>
+  <File Type="PWROPT-DRC" Name="c2c_top_wrapper_drc_pwropted.rpt"/>
+  <File Type="PLACE-CTRL" Name="c2c_top_wrapper_control_sets_placed.rpt"/>
+  <File Type="PWROPT-DCP" Name="c2c_top_wrapper_pwropt.dcp"/>
+  <File Type="OPT-HWDEF" Name="c2c_top_wrapper.hwdef"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/impl_1/sources.xml"/>
+  <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+  <File Type="PLACE-IO" Name="c2c_top_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="c2c_top_wrapper_utilization_placed.rpt"/>
+  <File Type="OPT-DCP" Name="c2c_top_wrapper_opt.dcp"/>
+  <File Type="OPT-DRC" Name="c2c_top_wrapper_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="c2c_top_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="c2c_top_wrapper_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="c2c_top_wrapper_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="c2c_top_wrapper_drc_physopted.rpt"/>
+  <File Type="ROUTE-DCP" Name="c2c_top_wrapper_routed.dcp"/>
+  <File Type="ROUTE-DRC" Name="c2c_top_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="c2c_top_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="c2c_top_wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="c2c_top_wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="c2c_top_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="c2c_top_wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="c2c_top_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="c2c_top_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="c2c_top_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="c2c_top_wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="c2c_top_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="c2c_top_wrapper_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="c2c_top_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="PA-TCL" Name="c2c_top_wrapper.tcl"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="c2c_top_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="c2c_top_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../src/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/mig_b.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/bram.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/c2c_top_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/c2c_top/c2c_top.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/c2c_top/ip/c2c_top_mig_7series_0_0/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="c2c_top_wrapper"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../src/c2c_constraints.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/../src/c2c_constraints.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015">
+      <Desc>Vivado Implementation Defaults</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
+  </Strategy>
+</GenRun>

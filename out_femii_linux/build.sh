@@ -8,3 +8,12 @@ cp ../Mars_ZX3_Reference_Design_for_FEMII/Vivado_FEMII/MarsZX3_FEMII.runs/MarsFE
 
 cd ../bsp-xilinx/
 ./build.sh --build-project-auto $origin/out_femii_linux.ini
+
+echo "generate the boot.bin file, this for some reason does not work in project mode!"
+cd $origin
+../bsp-xilinx/bin/mkbootimage/mkbootimage boot.bif boot.bin
+
+echo "copy the files to the correct place in the deployment folder"
+cd $origin
+cp rootfs.tar ../deployment/fem_boot_n_root/
+cp boot.bin ../deployment/fem_boot_n_root/boot/

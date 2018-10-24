@@ -1,0 +1,215 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date              : Tue Oct  2 13:01:50 2018
+| Host              : te7aegdev08.te.rl.ac.uk running 64-bit CentOS Linux release 7.5.1804 (Core)
+| Command           : report_clock_utilization -file system_top_clock_utilization_routed.rpt
+| Design            : system_top
+| Device            : 7z020-clg484
+| Speed File        : -1  PRODUCTION 1.11 2014-09-11
+| Temperature Grade : C
+--------------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Details of Global Clocks
+3. Details of Regional Clocks
+4. Details of Multi-Regional Clocks
+5. Details of I/O Clocks
+6. Details of Local Clocks
+7. Clock Regions : Key Resource Utilization
+8. Net wise resources used in clock region X1Y0
+9. Net wise resources used in clock region X0Y1
+10. Net wise resources used in clock region X1Y1
+11. Net wise resources used in clock region X0Y2
+12. Net wise resources used in clock region X1Y2
+
+1. Clock Primitive Utilization
+------------------------------
+
++-------+------+-----------+-----------+
+| Type  | Used | Available | Num Fixed |
++-------+------+-----------+-----------+
+| BUFG  |    5 |        32 |         0 |
+| BUFH  |    0 |        72 |         0 |
+| BUFIO |    0 |        16 |         0 |
+| MMCM  |    1 |         4 |         0 |
+| PLL   |    0 |         4 |         0 |
+| BUFR  |    0 |        16 |         0 |
+| BUFMR |    0 |         8 |         0 |
++-------+------+-----------+-----------+
+
+
+2. Details of Global Clocks
+---------------------------
+
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+-------+
+|       |                                                                                                                                                                 |                                                                                                                                                                  |   Num Loads  |       |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+| Index | BUFG Cell                                                                                                                                                       | Net Name                                                                                                                                                         | BELs | Sites | Fixed |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+|     1 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/fb_bufg_inst | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clkfbout_bufg |    1 |     1 |    no |
+|     2 | i_system/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG                                                                                            | i_system/processing_system7_0/inst/FCLK_CLK1                                                                                                                     |  308 |    94 |    no |
+|     3 | i_system/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG                                                                                            | i_system/processing_system7_0/inst/FCLK_CLK2                                                                                                                     |  522 |   137 |    no |
+|     4 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/bufg_inst    | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out    |  655 |   235 |    no |
+|     5 | i_system/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG                                                                                            | i_system/processing_system7_0/inst/FCLK_CLK0                                                                                                                     | 5968 |  1668 |    no |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+
+
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+-------+
+|       |                                                                                                                                                                  |                                                                                                                                                             |   Num Loads  |       |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+| Index | MMCM Cell                                                                                                                                                        | Net Name                                                                                                                                                    | BELs | Sites | Fixed |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+|     1 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/mmcm_adv_inst | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_out  |    1 |     1 |    no |
+|     2 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/mmcm_adv_inst | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clkfbout |    1 |     1 |    no |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------+-------+-------+
+
+
+3. Details of Regional Clocks
+-----------------------------
+
+4. Details of Multi-Regional Clocks
+-----------------------------------
+
+5. Details of I/O Clocks
+------------------------
+
+6. Details of Local Clocks
+--------------------------
+
+7. Clock Regions : Key Resource Utilization
+-------------------------------------------
+
++-------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+|                   | Global Clock |     BUFRs    |    BUFMRs    |    BUFIOs    |     MMCM     |      PLL     |      GT      |      PCI     |    ILOGIC    |    OLOGIC    |      FF      |     LUTM     |    RAMB18    |    RAMB36    |    DSP48E1   |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20000 |    0 |  4000 |    0 |    60 |    0 |    30 |    0 |    60 |
+| X1Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   25 | 25600 |    0 |  3400 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X0Y1              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 2522 |  9600 |  175 |  1600 |    0 |    20 |    3 |    10 |    0 |    20 |
+| X1Y1              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    9 |    50 |   10 |    50 | 2435 | 20800 |  190 |  3400 |    0 |    60 |    5 |    30 |    0 |    40 |
+| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 1124 |  9600 |   48 |  1600 |    0 |    20 |    3 |    10 |    0 |    20 |
+| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    4 |    50 |    1 |    50 |  849 | 20800 |   33 |  3400 |    0 |    60 |    1 |    30 |    0 |    40 |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+* RAMB36 site can be used as two RAMB18/FIFO18 sites.
+
+
+8. Net wise resources used in clock region X1Y0
+-----------------------------------------------
+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                Clock Net Name                |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------------------+
+| BUFG        | BUFHCE_X1Y8 |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  25 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK1 |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------------------+
+
+
+9. Net wise resources used in clock region X0Y1
+-----------------------------------------------
+
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Type | BUFHCE Site  | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs |  FFs | LUTMs | DSP48E1s |                                                                         Clock Net Name                                                                        |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BUFG        | BUFHCE_X0Y22 |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   27 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK2                                                                                                                  |
+| BUFG        | BUFHCE_X0Y21 |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   31 |     0 |        0 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out |
+| BUFG        | BUFHCE_X0Y20 |   no  |         0 |        0 |       0 |         6 |       0 |       0 | 2464 |   175 |        0 | i_system/processing_system7_0/inst/FCLK_CLK0                                                                                                                  |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+10. Net wise resources used in clock region X1Y1
+------------------------------------------------
+
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Type | BUFHCE Site  | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs |  FFs | LUTMs | DSP48E1s |                                                                          Clock Net Name                                                                          |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BUFG        | BUFHCE_X1Y12 |   no  |         1 |        0 |       0 |         0 |       0 |       0 |    0 |     0 |        0 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clkfbout_bufg |
+| BUFG        | BUFHCE_X1Y22 |   no  |         0 |        0 |       0 |         0 |       0 |      10 |   25 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK2                                                                                                                     |
+| BUFG        | BUFHCE_X1Y21 |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   41 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK1                                                                                                                     |
+| BUFG        | BUFHCE_X1Y23 |   no  |         0 |        0 |       0 |         0 |       9 |       0 |  302 |     2 |        0 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out    |
+| BUFG        | BUFHCE_X1Y20 |   no  |         0 |        0 |       0 |        10 |       0 |       0 | 2067 |   188 |        0 | i_system/processing_system7_0/inst/FCLK_CLK0                                                                                                                     |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+11. Net wise resources used in clock region X0Y2
+------------------------------------------------
+
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Type | BUFHCE Site  | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                                                                         Clock Net Name                                                                        |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BUFG        | BUFHCE_X0Y33 |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 208 |    48 |        0 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out |
+| BUFG        | BUFHCE_X0Y34 |   no  |         0 |        0 |       0 |         3 |       0 |       0 | 448 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK2                                                                                                                  |
+| BUFG        | BUFHCE_X0Y32 |   no  |         0 |        0 |       0 |         3 |       0 |       0 | 468 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK0                                                                                                                  |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+12. Net wise resources used in clock region X1Y2
+------------------------------------------------
+
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Type | BUFHCE Site  | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                                                                         Clock Net Name                                                                        |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BUFG        | BUFHCE_X1Y34 |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   8 |     0 |        0 | i_system/processing_system7_0/inst/FCLK_CLK2                                                                                                                  |
+| BUFG        | BUFHCE_X1Y33 |   no  |         0 |        0 |       0 |         1 |       0 |       0 |  45 |     0 |        0 | i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out |
+| BUFG        | BUFHCE_X1Y35 |   no  |         0 |        0 |       0 |         0 |       4 |       1 | 221 |    16 |        0 | i_system/processing_system7_0/inst/FCLK_CLK1                                                                                                                  |
+| BUFG        | BUFHCE_X1Y32 |   no  |         0 |        0 |       0 |         1 |       0 |       0 | 575 |    17 |        0 | i_system/processing_system7_0/inst/FCLK_CLK0                                                                                                                  |
++-------------+--------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
+# Location of BUFG Primitives 
+set_property LOC BUFGCTRL_X0Y17 [get_cells i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/bufg_inst]
+set_property LOC BUFGCTRL_X0Y20 [get_cells i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/fb_bufg_inst]
+set_property LOC BUFGCTRL_X0Y16 [get_cells i_system/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG]
+set_property LOC BUFGCTRL_X0Y19 [get_cells i_system/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG]
+set_property LOC BUFGCTRL_X0Y18 [get_cells i_system/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG]
+
+# Location of IO Clock Primitives
+
+# Location of MMCM Clock Primitives
+set_property LOC MMCME2_ADV_X1Y1 [get_cells i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/mmcm_adv_inst]
+
+# Location of BUFH Clock Primitives
+
+# Location of BUFR Clock Primitives
+
+# Location of BUFMR Clock Primitives
+
+# Location of PLL Clock Primitives
+
+# Location of IO Primitives which is load of clock spine
+
+# Location of clock ports
+set_property LOC IOB_X1Y74 [get_ports V7_2_ZY_CK]
+
+# Clock net "i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out" driven by instance "i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/bufg_inst" located at site "BUFGCTRL_X0Y17"
+#startgroup
+create_pblock {CLKAG_i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out}
+add_cells_to_pblock [get_pblocks  {CLKAG_i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out"}]]]
+resize_pblock [get_pblocks {CLKAG_i_system/axi_chip2chip_0/inst/master_fpga_gen.axi_chip2chip_master_phy_inst/master_sio_phy.axi_chip2chip_sio_input_inst/axi_chip2chip_clk_gen_inst/clk_ph_out}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "i_system/processing_system7_0/inst/FCLK_CLK0" driven by instance "i_system/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG" located at site "BUFGCTRL_X0Y16"
+#startgroup
+create_pblock {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK0}
+add_cells_to_pblock [get_pblocks  {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK0}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="i_system/processing_system7_0/inst/FCLK_CLK0"}]]]
+resize_pblock [get_pblocks {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK0}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "i_system/processing_system7_0/inst/FCLK_CLK1" driven by instance "i_system/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG" located at site "BUFGCTRL_X0Y19"
+#startgroup
+create_pblock {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK1}
+add_cells_to_pblock [get_pblocks  {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK1}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="i_system/processing_system7_0/inst/FCLK_CLK1"}]]]
+resize_pblock [get_pblocks {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK1}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "i_system/processing_system7_0/inst/FCLK_CLK2" driven by instance "i_system/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG" located at site "BUFGCTRL_X0Y18"
+#startgroup
+create_pblock {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK2}
+add_cells_to_pblock [get_pblocks  {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK2}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="i_system/processing_system7_0/inst/FCLK_CLK2"}]]]
+resize_pblock [get_pblocks {CLKAG_i_system/processing_system7_0/inst/FCLK_CLK2}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup

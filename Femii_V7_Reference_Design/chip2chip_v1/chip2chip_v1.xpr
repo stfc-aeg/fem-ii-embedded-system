@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2015.2 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="5" Path="/scratch/qem/adam/development/fem-ii-embedded-system/Femii_V7_Reference_Design/chip2chip_v1/chip2chip_v1.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="0393bdcd876d47e68c9c9f5a34e3a975"/>
+    <Option Name="Part" Val="xc7vx690tffg1930-2"/>
+    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+    <Option Name="TargetLanguage" Val="VHDL"/>
+    <Option Name="BoardPart" Val=""/>
+    <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
+    <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="EnableCoreContainerForIPI" Val="FALSE"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../src/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../src/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../src/bram.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../src/c2c_top_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/c2c_top/c2c_top.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_axi_bram_ctrl_0_bram_0/c2c_top_axi_bram_ctrl_0_bram_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_axi_bram_ctrl_0_0/c2c_top_axi_bram_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_mig_7series_0_0/c2c_top_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="hw_handoff/c2c_top_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="hdl/c2c_top.hwdef"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_axi_interconnect_0_0/c2c_top_axi_interconnect_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_axi_chip2chip_0_0/c2c_top_axi_chip2chip_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlconstant_1_0/c2c_top_xlconstant_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlconstant_0_0/c2c_top_xlconstant_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlconcat_0_0/c2c_top_xlconcat_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_version_reg_0/c2c_top_version_reg_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_status_control_0/c2c_top_status_control_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_rst_mig_7series_0_200M_0/c2c_top_rst_mig_7series_0_200M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_page_reg_0/c2c_top_page_reg_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlslice_1_0/c2c_top_xlslice_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlslice_0_0/c2c_top_xlslice_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlconstant_3_0/c2c_top_xlconstant_3_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xlconstant_2_0/c2c_top_xlconstant_2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_axi_quad_spi_0_0/c2c_top_axi_quad_spi_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_xbar_0/c2c_top_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_auto_pc_1/c2c_top_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_auto_pc_2/c2c_top_auto_pc_2.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_clk_wiz_0_0/c2c_top_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_auto_pc_3/c2c_top_auto_pc_3.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="hw_handoff/c2c_top.hwh"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="ip/c2c_top_auto_pc_0/c2c_top_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="c2c_top_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="c2c_top.bd" FileRelPathName="hdl/c2c_top.vhd"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/c2c_top/ip/c2c_top_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="c2c_top_wrapper"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+      <Filter Type="Constrs"/>
+      <File Path="$PPRDIR/../src/c2c_constraints.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TargetConstrsFile" Val="$PPRDIR/../src/c2c_constraints.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+      <Option Name="CompiledLib" Val="0"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="Questa">
+      <Option Name="Description" Val="Questa Advanced Simulator"/>
+    </Simulator>
+    <Simulator Name="IES">
+      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
+    <Simulator Name="Riviera">
+      <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="9">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7vx690tffg1930-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7vx690tffg1930-2" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015">
+          <Desc>Vivado Implementation Defaults</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream">
+          <Option Id="BinFile">1</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+  </Runs>
+</Project>
