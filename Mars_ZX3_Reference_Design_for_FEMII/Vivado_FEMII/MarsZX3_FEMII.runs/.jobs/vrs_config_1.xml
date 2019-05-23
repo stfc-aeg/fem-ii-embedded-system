@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="MarsFEMII_synth" LaunchDir="/scratch/qem/adam/development/fem-ii-embedded-system/Mars_ZX3_Reference_Design_for_FEMII/Vivado_FEMII/MarsZX3_FEMII.runs/MarsFEMII_synth" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="MarsFEMII_impl" LaunchDir="/scratch/qem/adam/development/fem-ii-embedded-system/Mars_ZX3_Reference_Design_for_FEMII/Vivado_FEMII/MarsZX3_FEMII.runs/MarsFEMII_impl" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
-		<Parent Id="MarsFEMII_synth"/>
-	</Run>
-</Runs>
-
