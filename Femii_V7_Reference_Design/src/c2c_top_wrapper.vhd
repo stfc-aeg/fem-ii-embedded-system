@@ -14,23 +14,23 @@ use UNISIM.VCOMPONENTS.ALL;
 entity c2c_top_wrapper is
   port (
     DDR3_PGADD : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR3_addr : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    DDR3_ba : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR3_cas_n : out STD_LOGIC;
-    DDR3_ck_n : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_ck_p : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_cke : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_cs_n : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_dm : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_dq : inout STD_LOGIC_VECTOR ( 63 downto 0 );
-    DDR3_dqs_n : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_dqs_p : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_ras_n : out STD_LOGIC;
-    DDR3_reset_n : out STD_LOGIC;
-    DDR3_we_n : out STD_LOGIC;
-    SYS_CLK_clk_n : in STD_LOGIC;
-    SYS_CLK_clk_p : in STD_LOGIC;
+--    DDR3_addr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+--    DDR3_ba : out STD_LOGIC_VECTOR ( 2 downto 0 );
+--    DDR3_cas_n : out STD_LOGIC;
+--    DDR3_ck_n : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_ck_p : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_cke : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_cs_n : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_dm : out STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_dq : inout STD_LOGIC_VECTOR ( 63 downto 0 );
+--    DDR3_dqs_n : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_dqs_p : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_ras_n : out STD_LOGIC;
+--    DDR3_reset_n : out STD_LOGIC;
+--    DDR3_we_n : out STD_LOGIC;
+--    SYS_CLK_clk_n : in STD_LOGIC;
+--    SYS_CLK_clk_p : in STD_LOGIC;
     axi_c2c_selio_rx_clk_in : in STD_LOGIC;
     axi_c2c_selio_rx_data_in : in STD_LOGIC_VECTOR ( 8 downto 0 );
     axi_c2c_selio_tx_clk_out : out STD_LOGIC;
@@ -49,23 +49,23 @@ end c2c_top_wrapper;
 architecture STRUCTURE of c2c_top_wrapper is
   component c2c_top is
   port (
-    DDR3_dq : inout STD_LOGIC_VECTOR ( 63 downto 0 );
-    DDR3_dqs_p : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_dqs_n : inout STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_addr : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    DDR3_ba : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR3_ras_n : out STD_LOGIC;
-    DDR3_cas_n : out STD_LOGIC;
-    DDR3_we_n : out STD_LOGIC;
-    DDR3_reset_n : out STD_LOGIC;
-    DDR3_ck_p : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_ck_n : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_cke : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_cs_n : out STD_LOGIC_VECTOR ( 0 to 0 );
-    DDR3_dm : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    DDR3_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
-    SYS_CLK_clk_p : in STD_LOGIC;
-    SYS_CLK_clk_n : in STD_LOGIC;
+--    DDR3_dq : inout STD_LOGIC_VECTOR ( 63 downto 0 );
+--    DDR3_dqs_p : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_dqs_n : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_addr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+--    DDR3_ba : out STD_LOGIC_VECTOR ( 2 downto 0 );
+--    DDR3_ras_n : out STD_LOGIC;
+--    DDR3_cas_n : out STD_LOGIC;
+--    DDR3_we_n : out STD_LOGIC;
+--    DDR3_reset_n : out STD_LOGIC;
+--    DDR3_ck_p : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_ck_n : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_cke : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_cs_n : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    DDR3_dm : out STD_LOGIC_VECTOR ( 7 downto 0 );
+--    DDR3_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
+--    SYS_CLK_clk_p : in STD_LOGIC;
+--    SYS_CLK_clk_n : in STD_LOGIC;
     SPI_0_io0_i : in STD_LOGIC;
     SPI_0_io0_o : out STD_LOGIC;
     SPI_0_io0_t : out STD_LOGIC;
@@ -124,21 +124,21 @@ begin
 c2c_top_i: component c2c_top
      port map (
       DDR3_PGADD(2 downto 0) => DDR3_PGADD(2 downto 0),
-      DDR3_addr(12 downto 0) => DDR3_addr(12 downto 0),
-      DDR3_ba(2 downto 0) => DDR3_ba(2 downto 0),
-      DDR3_cas_n => DDR3_cas_n,
-      DDR3_ck_n(0) => DDR3_ck_n(0),
-      DDR3_ck_p(0) => DDR3_ck_p(0),
-      DDR3_cke(0) => DDR3_cke(0),
-      DDR3_cs_n(0) => DDR3_cs_n(0),
-      DDR3_dm(7 downto 0) => DDR3_dm(7 downto 0),
-      DDR3_dq(63 downto 0) => DDR3_dq(63 downto 0),
-      DDR3_dqs_n(7 downto 0) => DDR3_dqs_n(7 downto 0),
-      DDR3_dqs_p(7 downto 0) => DDR3_dqs_p(7 downto 0),
-      DDR3_odt(0) => DDR3_odt(0),
-      DDR3_ras_n => DDR3_ras_n,
-      DDR3_reset_n => DDR3_reset_n,
-      DDR3_we_n => DDR3_we_n,
+--      DDR3_addr(12 downto 0) => DDR3_addr(12 downto 0),
+--      DDR3_ba(2 downto 0) => DDR3_ba(2 downto 0),
+--      DDR3_cas_n => DDR3_cas_n,
+--      DDR3_ck_n(0) => DDR3_ck_n(0),
+--      DDR3_ck_p(0) => DDR3_ck_p(0),
+--      DDR3_cke(0) => DDR3_cke(0),
+--      DDR3_cs_n(0) => DDR3_cs_n(0),
+--      DDR3_dm(7 downto 0) => DDR3_dm(7 downto 0),
+--      DDR3_dq(63 downto 0) => DDR3_dq(63 downto 0),
+--      DDR3_dqs_n(7 downto 0) => DDR3_dqs_n(7 downto 0),
+--      DDR3_dqs_p(7 downto 0) => DDR3_dqs_p(7 downto 0),
+--      DDR3_odt(0) => DDR3_odt(0),
+--      DDR3_ras_n => DDR3_ras_n,
+--      DDR3_reset_n => DDR3_reset_n,
+--      DDR3_we_n => DDR3_we_n,
       SPI_0_io0_i => spi_0_io0_i,
       SPI_0_io0_o => spi_0_io0_o,
       SPI_0_io0_t => spi_0_io0_t,
@@ -157,8 +157,8 @@ c2c_top_i: component c2c_top
       SPI_0_ss_i(0) => spi_0_ss_i_0(0),
       SPI_0_ss_o(0) => spi_0_ss_o_0(0),
       SPI_0_ss_t => spi_0_ss_t,
-      SYS_CLK_clk_n => SYS_CLK_clk_n,
-      SYS_CLK_clk_p => SYS_CLK_clk_p,
+--      SYS_CLK_clk_n => SYS_CLK_clk_n,
+--      SYS_CLK_clk_p => SYS_CLK_clk_p,
       axi_c2c_selio_rx_clk_in => axi_c2c_selio_rx_clk_in,
       axi_c2c_selio_rx_data_in(8 downto 0) => axi_c2c_selio_rx_data_in(8 downto 0),
       axi_c2c_selio_tx_clk_out => axi_c2c_selio_tx_clk_out,
