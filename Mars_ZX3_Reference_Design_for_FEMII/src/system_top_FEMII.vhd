@@ -113,9 +113,9 @@ entity system_top is
         FSEL_0_DE           : out std_logic;   
         QSFP_I2C_SEL0       : out std_logic;        
         LPMODE0             : out std_logic;
-        MODPRSL0            : out std_logic;
+        --MODPRSL0            : out std_logic;
         LPMODE1             : out std_logic;
-        MODPRSL1            : out std_logic;
+        --MODPRSL1            : out std_logic;
         P1V0_EN_ZYNC        : out std_logic;
                         
         --RESET SIGNALS
@@ -139,6 +139,10 @@ entity system_top is
         QDR_TERM_PGOOD      : in std_logic;
         P1V0_MGT_PGOOD       : in std_logic; -- 1v8
         DONE                : IN std_logic;
+        MODPRSL0            : in std_logic;
+        MODPRSL1            : in std_logic;
+        
+        
             spi_0_io0_io : inout STD_LOGIC;
             spi_0_io1_io : inout STD_LOGIC;
             spi_0_io2_io : inout STD_LOGIC;
@@ -199,8 +203,8 @@ architecture structure of system_top is
             IIC_1_scl_o         : out std_logic;
             IIC_1_scl_t         : out std_logic;
 			RESET_N				: out std_logic;
-			status_i            : in std_logic_vector(11 downto 0);
-			control_o           : out std_logic_vector(8 downto 0);
+			status_i            : in std_logic_vector(13 downto 0);
+			control_o           : out std_logic_vector(6 downto 0);
 			c2c_data_in         : in std_logic_vector(8 downto 0);
 			c2c_data_out        : out std_logic_vector(8 downto 0);
 			c2c_clk_in          : in std_logic;
@@ -264,7 +268,7 @@ architecture structure of system_top is
 	signal LedCount			: unsigned (23 downto 0);
 	signal GPIO				: std_logic_vector (7 downto 0);
 	
-    signal control_reg      : std_logic_vector (8 downto 0);
+    signal control_reg      : std_logic_vector (6 downto 0);
 
     signal spi_0_io0_i : STD_LOGIC;
     signal spi_0_io0_o : STD_LOGIC;
@@ -340,7 +344,7 @@ begin
             c2c_clk_out          => ZY_2_V7_CK,
             c2c_data_in          => V7_2_ZY_D,
             c2c_clk_in           => V7_2_ZY_CK,
-            status_i            => DONE&P1V0_MGT_PGOOD&QDR_TERM_PGOOD&DDR3_TERM_PGOOD&P1V8_MGT_PGOOD&P1V2_PGOOD&P1V5_PGOOD&P1V8_PGOOD&P2V0_PGOOD&P1V0_PGOOD&P5V0_PGOOD&P3V3_PGOOD,
+            status_i            => DONE&P1V0_MGT_PGOOD&QDR_TERM_PGOOD&DDR3_TERM_PGOOD&P1V8_MGT_PGOOD&P1V2_PGOOD&P1V5_PGOOD&P1V8_PGOOD&P2V0_PGOOD&P1V0_PGOOD&P5V0_PGOOD&P3V3_PGOOD&MODPRSL0&MODPRSL1,
             IIC_1_scl_t          => IIC_1_scl_t,
             gpio_reset_resetn => NOT reset_reg_resetn_int, -- this is the NOT of this signal as active low
             reset_gpio_wo => reset_gpio_wo,  
@@ -483,11 +487,8 @@ begin
     F_CLK_SEL <= control_reg(2);
     QSFP_I2C_SEL0 <= control_reg(3);
     LPMODE0 <= control_reg(4);
-    MODPRSL0 <= control_reg(5);
-    LPMODE1 <= control_reg(6);
-    MODPRSL1 <= control_reg(7);
-    P1V0_EN_ZYNC <= control_reg(8); 
- --   P1V0_EN_ZYNC <= 'Z' when GPIO(0) = '0' else '0';
+    LPMODE1 <= control_reg(5);
+    P1V0_EN_ZYNC <= control_reg(6); 
   
 
 
