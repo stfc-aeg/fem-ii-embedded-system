@@ -1,0 +1,7 @@
+*.log
+*.jou
+*.rpt
+*.xml
+*.str
+.Xil
+Femii_V7_Reference_Design/chip2chip_v1
