@@ -1,42 +1,35 @@
 class StatusButton {
-    constructor(app, path, data) {
-        this.app = app;
+    constructor(adapter, path, data) {
+        this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
         this.path = path;
         this.value = data;
     }
+
     generate() {
-        if (this.id === "SELECTED_FLASH_DEVICE") {
-            var ret = `
-<label class=lbl lbl_control >${this.id}</label>
-<button id="${this.id}" type="button" class="btn btn_control_flash" >${this.value}</button>
-<input id="num_${this.id}" type="number" class="input_num" min="0" max="3" value=${this.value}></button>`;
-        } else {
-            var ret = `
-<label class=lbl lbl_control >${this.id}</label>
-<button id="${this.id}" type="button" class="btn btn_control" >${this.value}</button>`;
-        }
+        var ret = `
+<button id="${this.id}" type="button" class="btn ${(this.value == 0) ? "status-warn" : "status-ok"}" >${this.id}</button>`;
         return ret;
     }
+
     init(){
         this.element = document.getElementById(this.id);
-        if (this.id === "SELECTED_FLASH_DEVICE") {
-            this.numElement = document.getElementById(`num_${this.id}`);
-            this.element.addEventListener("click", this.onClickFlash.bind(this));
-        } else {
-            this.element.addEventListener("click", this.onClick.bind(this));
-        }
+        this.element.addEventListener("click", this.onClick.bind(this));
     }
+
     update(data) {
         if(data === this.value) return;
         this.value = data;
-        this.element.innerHTML = this.value;
+        if (data == 0) {
+            this.element.classList.remove("status-ok");
+            this.element.classList.add("status-warn");
+        } else {
+            this.element.classList.add("status-ok");
+            this.element.classList.remove("status-warn");
+        }
     }
+
     onClick() {
-        this.app.put(this.path, +!this.value);
-    }
-    onClickFlash() {
-        this.app.put(this.path, this.numElement.value);
+        this.adapter.put(this.path, JSON.stringify(!this.value));
     }
 }
-    

@@ -5,28 +5,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="css/femii.css" rel="stylesheet">
 
-        <title>ODIN Server</title>
+        <title>FEM Adapter for Odin Server</title>
     </head>
 
     <body>
 
         <div id="app"></div>
 
-        <!-- Scripts -->
-
-        <!-- jQuery - For Bootstrap and Odin scripts -->
+    <!-- Scripts -->
+        <!-- jQuery - For Odin scripts -->
         <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 
         <script type="text/javascript" src="js/odin_server.js"></script>
         <script type="text/javascript" src="js/components/App.js"></script>
+        <script type="text/javascript" src="js/components/Adapter.js"></script>
         <script type="text/javascript" src="js/components/Branch.js"></script>
         <script type="text/javascript" src="js/components/Button.js"></script>
         <script type="text/javascript" src="js/components/StatusBox.js"></script>
         <script type="text/javascript" src="js/components/StatusButton.js"></script>
+        <script type="text/javascript" src="js/components/NumberButton.js"></script>
+        <script type="text/javascript" src="js/components/FileSelect.js"></script>
+        <script type="text/javascript" src="js/components/FileUpload.js"></script>
 
-        <!-- Application entry point -->
+
+
+    <!-- Application entry point -->
         <script type="text/javascript">
             $(document).ready(function() {
                 initAPI()

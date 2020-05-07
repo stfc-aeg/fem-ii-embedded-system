@@ -1,7 +1,8 @@
 """ Fem Adapter
 
 Adapter which exposes the underlying FEM-II module and access to
-it's onboard hardware including GPIO access, the QSPI driver and internal monitoring devices.
+it's onboard hardware including GPIO access, the QSPI driver and internal monitoring devices,
+or emulates said device.
 
 Sophie Kirkham, Application Engineering Group, STFC. 2019
 """
@@ -17,17 +18,14 @@ from odin.adapters.adapter import ApiAdapter, ApiAdapterResponse, request_types,
 from odin.adapters.parameter_tree import ParameterTree, ParameterTreeError
 
 class FemAdapter(ApiAdapter):
-    """
-    This is a comment
-    """
     executor = futures.ThreadPoolExecutor(max_workers=1)
-    
+
     def __init__(self, **kwargs):
         """Initialize the FemAdapter object.
 
         This constructor initializes the FemAdapter object.
 
-        :param kwargs: keyword arguments specifying options
+        :param kwargs: keyword arguments specifying options including emulation
         """
         # Intialise superclass
         super(FemAdapter, self).__init__(**kwargs)
@@ -44,7 +42,7 @@ class FemAdapter(ApiAdapter):
                 )
                 self.refresh_status(refresh_interval)
             logging.debug('Fem Adapter loaded with emulated Fem')
-            
+
         self.fem = Fem()
         logging.debug('Fem Adapter loaded')
 
@@ -63,7 +61,7 @@ class FemAdapter(ApiAdapter):
             status_code = 200
         except ParameterTreeError as e:
             response = {'error': str(e)}
-            status_code = 400
+            status_code = 500
 
         content_type = 'application/json'
 
@@ -89,9 +87,6 @@ class FemAdapter(ApiAdapter):
             self.fem.set(path, data)
             response = self.fem.get(path)
             status_code = 200
-        except FemError as e:
-            response = {'error': str(e)}
-            status_code = 400
         except (TypeError, ValueError) as e:
             response = {'error': 'Failed to decode PUT request body: {}'.format(str(e))}
             status_code = 400
@@ -110,7 +105,7 @@ class FemAdapter(ApiAdapter):
         :param request: HTTP request object
         """
         #:return: an ApiAdapterResponse object containing the appropriate response
-        
+
 
         response = 'FemAdapter: DELETE on path {}'.format(path)
         status_code = 200
@@ -130,11 +125,3 @@ class FemAdapter(ApiAdapter):
         sleep(refresh_interval)
         self.fem.update_status()
         IOLoop.instance().add_callback(self.refresh_status, refresh_interval)
-
-
-
-class FemError(Exception):
-    """Simple exception class for PSCUData to wrap lower-level exceptions."""
-    print("an error happened")
-
-    pass

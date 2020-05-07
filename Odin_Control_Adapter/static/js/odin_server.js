@@ -1,5 +1,5 @@
 var api_version = "0.1";
-var adapter = "femii"
+var adapters = [];
 
 function initAPI()
 {
@@ -12,7 +12,7 @@ function initAPI()
     .then( 
         function(data)
         {
-            api_version = data.api_version;
+            api_version = JSON.parse(data)["api"];
         }
     )
        
@@ -28,12 +28,12 @@ function initAPI()
     .then(
         function(data)
         {
-            adapter = data.adapters[0];
+            adapters = data.adapters;
         }
     );
 }
 
-function apiGET(path, metadata=false)
+function apiGET(adapter, path, metadata=false)
 {
     return $.ajax(`api/${api_version}/${adapter}/${path}`, {
         method: "GET",
@@ -44,12 +44,12 @@ function apiGET(path, metadata=false)
     });
 }
 
-function apiPUT(path, data)
+function apiPUT(adapter, path, data)
 {
     return $.ajax(`api/${api_version}/${adapter}/${path}`, {
         method: "PUT",
         contentType: "application/json",
         processData: false,
-        data: JSON.stringify(data)
+        data: data
     });
 }

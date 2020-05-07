@@ -1,8 +1,59 @@
 body {
-    padding-top: 50px;
-}
-
-.odin-server {
     padding: 40px 15px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    display: inline-flex;
+}
+
+.logo{
+	padding: 10px;
+	height: 50px;
+    margin-left: 10px;
+    align-self: left;
+}
+
+.branch-container{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+}
+
+.status {
+    width: 12em;
+    padding: .5em 0 ;
+    margin: 0 0.25em 0.5em;
+
+}
+
+.status-ok {
+    background-color: #67c04d;
+}
+
+.status-warn {
+    background-color: #e94d36;
+}
+
+.btn {
+    font-size: 1em;
+    width: 12em;
+    padding: .5em 0 ;
+    margin: 0 0.25em 0.5em;
+}
+
+.lbl_control{
+    padding: .5em 0 ;
+    margin: 0 0.25em 0.5em;
+}
+
+.input_num{
+    font-size: 1em;
+    width: 2em;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
 }
