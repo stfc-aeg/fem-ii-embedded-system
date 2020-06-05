@@ -1,9 +1,8 @@
-""" Fem Adapter
+"""Fem Adapter.
 
 Adapter which exposes the underlying FEM-II module and access to
 it's onboard hardware including GPIO access, the QSPI driver and internal monitoring devices,
 or emulates said device.
-
 Sophie Kirkham, Application Engineering Group, STFC. 2019
 """
 import logging
@@ -15,16 +14,23 @@ from tornado.concurrent import run_on_executor
 from tornado.escape import json_decode
 
 from odin.adapters.adapter import ApiAdapter, ApiAdapterResponse, request_types, response_types
-from odin.adapters.parameter_tree import ParameterTree, ParameterTreeError
+from odin.adapters.parameter_tree import ParameterTreeError
+
 
 class FemAdapter(ApiAdapter):
+    """ApiAdapter for the FEM-II Module.
+
+    Adapter which exposes the underlying FEM-II module and access to
+    it's onboard hardware including GPIO access, the QSPI driver and internal monitoring devices,
+    or emulates said device.
+    """
+
     executor = futures.ThreadPoolExecutor(max_workers=1)
 
     def __init__(self, **kwargs):
         """Initialize the FemAdapter object.
 
         This constructor initializes the FemAdapter object.
-
         :param kwargs: keyword arguments specifying options including emulation
         """
         # Intialise superclass
@@ -51,7 +57,6 @@ class FemAdapter(ApiAdapter):
         """Handle an HTTP GET request.
 
         This method handles an HTTP GET request, returning a JSON response.
-
         :param path: URI path of request
         :param request: HTTP request object
         :return: an ApiAdapterResponse object containing the appropriate response
@@ -74,12 +79,10 @@ class FemAdapter(ApiAdapter):
         """Handle an HTTP PUT request.
 
         This method handles an HTTP PUT request, returning a JSON response.
-
         :param path: URI path of request
         :param request: HTTP request object
         :return: an ApiAdapterResponse object containing the appropriate response
         """
-
         content_type = 'application/json'
 
         try:
@@ -100,13 +103,10 @@ class FemAdapter(ApiAdapter):
         """Handle an HTTP DELETE request.
 
         This method handles an HTTP DELETE request, returning a JSON response.
-
         :param path: URI path of request
         :param request: HTTP request object
+        :return: an ApiAdapterResponse object containing the appropriate response
         """
-        #:return: an ApiAdapterResponse object containing the appropriate response
-
-
         response = 'FemAdapter: DELETE on path {}'.format(path)
         status_code = 200
 
@@ -117,6 +117,7 @@ class FemAdapter(ApiAdapter):
     @run_on_executor
     def refresh_status(self, refresh_interval):
         """Run the emulator background refresh.
+
         This randomizes the values of the status controls of the emulated fem,
         before adding itself as a callback to the IOLoop instance to be called again.
         :param task_interval: time to sleep until task is run again

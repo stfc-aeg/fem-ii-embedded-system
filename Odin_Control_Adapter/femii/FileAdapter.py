@@ -116,19 +116,6 @@ class ServerFileHandler():
         self.receivedChunks = 0
         self.fileChunks = [None] * 2
 
-    def listFiles(self):
-        return [x for x in os.listdir(self.filePath) if x.endswith(".bin")]
-
-
-    def programQSPI(self, data):
-        proc = subprocess.Popen(["ls","-l"], stdout=subprocess.PIPE)
-#        logging.debug("qspi_programmer --input_file " + self.filePath + data[0] + " --operation program --flash_chip " + data[1] + "--size 28734812")
-#        call(["qspi_programmer","--input_file", self.filePath + data[0], "--operation", "program", "--flash_chip", data[1], "--size",  "28734812"])
-        while proc.poll() is None:
-            line = proc.stdout.readline()
-            if line:
-                logging.debug("out:" + line.strip())
-
     def uploadFile(self, data):
         if (data[0] < 0):
             self.fileName = data[1]
@@ -143,6 +130,19 @@ class ServerFileHandler():
             fileAsBinary = ''.join(self.fileChunks)
             fout = open(self.filePath + "copy_" + self.fileName, "wb")
             fout.write(fileAsBinary)
+
+    def listFiles(self):
+        return [x for x in os.listdir(self.filePath) if x.endswith(".bin")]
+
+    def programQSPI(self, data):
+        proc = subprocess.Popen(["ls","-l"], stdout=subprocess.PIPE)
+ #       proc = subprocess.Popen(["qspi_programmer","--input_file", self.filePath + data[0],
+ #               "--operation", "program", "--flash_chip", data[1], "--size",  "28734812"],
+ #               stdout=subprocess.PIPE)
+        while proc.poll() is None:
+            line = proc.stdout.readline()
+            if line:
+                logging.debug("out:" + line.strip())
 
     def get(self, path, wants_metadata=False):
         """Main get method for the parameter tree"""

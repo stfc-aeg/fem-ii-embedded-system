@@ -24,7 +24,7 @@ class FileUpload {
         this.elementBtn = document.getElementById(`btn_${this.id}`);
         this.progressContainer = document.getElementById(`prog_container`);
         this.progressBar = document.getElementById(`prog_bar`);
-
+    
         this.elementBtn.addEventListener("click", this.onClick.bind(this));
         this.reader.onload = function(evt) {
             self.adapter.app.setEnabled(0);
@@ -40,10 +40,10 @@ class FileUpload {
             for (var i = 0; i < this.fileChunks.length;i++) {
                 promises.push(
                     self.adapter.put(self.path, JSON.stringify([i, this.fileChunks[i]]))
-                    .then(self.progressBar.value += 1)
+                    .then(setTimeout(function(){ self.progressBar.value += 1 }, i * 400))
                 );
             }
-            Promise.all(promises)
+            $.when.apply($, promises)
                 .then(self.fulfil())
         };
     }
@@ -56,7 +56,7 @@ class FileUpload {
 
     fulfil(){
         this.adapter.app.setEnabled(1);
-     //   this.progressContainer.hidden = true;
+        this.progressContainer.hidden = true;
     }
 
     onClick() {
