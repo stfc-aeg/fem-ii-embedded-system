@@ -1,3 +1,8 @@
+"""File Adapter.
+
+Adapter which allows files to be uploaded to the FEM, and for a QSPI script to be run server side
+Ben Edwards, DSSG, STFC. 2020
+"""
 import logging
 import os
 import subprocess
@@ -9,19 +14,25 @@ from tornado.escape import json_decode
 from odin.adapters.adapter import ApiAdapter, ApiAdapterResponse, request_types, response_types
 from odin.adapters.parameter_tree import ParameterTree, ParameterTreeError
 
+
 class FileAdapter(ApiAdapter):
+    """ApiAdapter for handling files on the FEM-II Module.
+
+    Adapter which allows files to be uploaded to the FEM-II Module
+    and to program the onboard flash
+    """
 
     def __init__(self, **kwargs):
-        """Initialize the FemAdapter object.
+        """Initialize the FileAdapter object.
 
-        This constructor initializes the FemAdapter object.
+        This constructor initializes the FileAdapter object.
 
         :param kwargs: keyword arguments specifying options
         """
         # Intialise superclass
         super(FileAdapter, self).__init__(**kwargs)
-
-        self.serverFileHandler = ServerFileHandler()
+        fileDirectory = self.options.get('fpga_location', 'fpgafiles/')
+        self.serverFileHandler = ServerFileHandler(fileDirectory)
         logging.debug('File Adapter loaded')
 
     @response_types('application/json', default='application/json')
@@ -57,13 +68,9 @@ class FileAdapter(ApiAdapter):
         :param request: HTTP request object
         :return: an ApiAdapterResponse object containing the appropriate response
         """
-
         content_type = 'application/json'
 
         try:
-#            if (path == "files/upload"):
-#                data = request.body
-#            else:
             data = json_decode(request.body)
             self.serverFileHandler.set(path, data)
             response = self.serverFileHandler.get(path)
@@ -73,7 +80,6 @@ class FileAdapter(ApiAdapter):
             status_code = 400
 
         logging.debug(response)
-
         return ApiAdapterResponse(response, content_type=content_type,
                                   status_code=status_code)
 
@@ -84,10 +90,8 @@ class FileAdapter(ApiAdapter):
 
         :param path: URI path of request
         :param request: HTTP request object
+        :return: an ApiAdapterResponse object containing the appropriate response
         """
-        #:return: an ApiAdapterResponse object containing the appropriate response
-
-
         response = 'File Adapter: DELETE on path {}'.format(path)
         status_code = 200
 
@@ -95,20 +99,29 @@ class FileAdapter(ApiAdapter):
 
         return ApiAdapterResponse(response, status_code=status_code)
 
+
 class ServerFileHandler():
+    """File Handler object.
 
-    def __init__(self):
-#        self.filePath = '/root/fpgafiles/'
-        self.filePath = 'fpgafiles/'
+    Allows the client side to send files to the server side and to program the FEM Flash.
+    """
 
-        try: #populate the parameter tree
+    def __init__(self, fileDirectory):
+        """Initialize the File Handler Object.
+
+        This constructer initialises the File Handler object by setting the server side file path
+        and setting up the parameter tree
+        """
+        self.filePath = fileDirectory
+
+        try:  # populate the parameter tree
             self.param_tree = ParameterTree({
-                "files":{
-                    "program":(self.listFiles, self.programQSPI),
-                    "upload":(None, self.uploadFile)
+                "files": {
+                    "program": (self.listFiles, self.programQSPI),
+                    "upload": (None, self.uploadFile)
                 }
             })
-        except ValueError: #excepts need revision to be meaningful
+        except ValueError:
             print('Non-numeric input detected.')
 
         self.fileName = ""
@@ -117,6 +130,12 @@ class ServerFileHandler():
         self.fileChunks = [None] * 2
 
     def uploadFile(self, data):
+        """Store uploaded file chunks and reconstruct the file.
+
+        This method prepares the adapter to receive a file when receiving a negative number,
+        Then stores the received chunks till all expected chunks are received,
+        Then reconstructs the file from the chunks
+        """
         if (data[0] < 0):
             self.fileName = data[1]
             self.expectedChunks = -1 * data[0]
@@ -132,22 +151,27 @@ class ServerFileHandler():
             fout.write(fileAsBinary)
 
     def listFiles(self):
+        """List all bin files in the file directory from the config."""
         return [x for x in os.listdir(self.filePath) if x.endswith(".bin")]
 
     def programQSPI(self, data):
-        proc = subprocess.Popen(["ls","-l"], stdout=subprocess.PIPE)
- #       proc = subprocess.Popen(["qspi_programmer","--input_file", self.filePath + data[0],
- #               "--operation", "program", "--flash_chip", data[1], "--size",  "28734812"],
- #               stdout=subprocess.PIPE)
+        """Program the QSPI Flash.
+
+        Uses a subprocess to program the flash via the qspi_programmer
+        """
+        proc = subprocess.Popen(["ls", "-l"], stdout=subprocess.PIPE)
+#        proc = subprocess.Popen(["qspi_programmer","--input_file", self.filePath + data[0],
+#                "--operation", "program", "--flash_chip", data[1], "--size",  "28734812"],
+#                stdout=subprocess.PIPE)
         while proc.poll() is None:
             line = proc.stdout.readline()
             if line:
                 logging.debug("out:" + line.strip())
 
     def get(self, path, wants_metadata=False):
-        """Main get method for the parameter tree"""
+        """Get the parameter tree."""
         return self.param_tree.get(path, wants_metadata)
 
     def set(self, path, data):
-        """Main set method for the parameter tree"""
+        """Set the parameter tree."""
         return self.param_tree.set(path, data)

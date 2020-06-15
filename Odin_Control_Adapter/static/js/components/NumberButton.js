@@ -1,4 +1,5 @@
 class NumberButton {
+    //create a number selector with button for SELECTED_FLASH control
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];

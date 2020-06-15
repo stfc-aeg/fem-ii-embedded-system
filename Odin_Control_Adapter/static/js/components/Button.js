@@ -1,4 +1,5 @@
 class Button {
+    //create a button for set only controls
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
@@ -13,6 +14,7 @@ class Button {
     }
 
     init(){
+        //add a click event to the button
         this.element = document.getElementById(this.id);
         this.element.addEventListener("click", this.onClick.bind(this));
     }

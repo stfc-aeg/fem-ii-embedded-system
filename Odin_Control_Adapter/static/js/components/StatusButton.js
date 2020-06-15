@@ -1,4 +1,5 @@
 class StatusButton {
+    //create a colour changing button for get/set controls
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
@@ -18,6 +19,7 @@ class StatusButton {
     }
 
     update(data) {
+        //When updating ensure the colour shows the current state
         if(data === this.value) return;
         this.value = data;
         if (data == 0) {

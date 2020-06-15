@@ -32,7 +32,7 @@ class Fem():
 
             # BELOW: list of reset register names and the corresponding GPIO port address
             self.reset_register = {"ZYNC_F_RST": 1010, "ZYNC_FW_RST_N": 1011, "RESETL0": 1012,
-                                "RESETL1": 1013, "V7_INIT_B": 1014, "V7_PRG_ZY": 1015}
+                                   "RESETL1": 1013, "V7_INIT_B": 1014, "V7_PRG_ZY": 1015}
             self.reset_names = self.reset_register.keys()
             """
             from firmware
@@ -46,12 +46,12 @@ class Fem():
 
             # BELOW: list of control register names and the corresponding GPIO port address
             self.control_register = {"FSEL_1_DE": 986, "FSEL_0_DE": 987, "F_CLK_SEL": 988,
-                                        "QSFP_I2C_SEL0": 989, "LPMODE0": 990, "MODPRSL0": 991,
-                                        "LPMODE1": 992, "MODPRSL1": 993, "P1V0_EN_ZYNC": 994}
+                                     "QSFP_I2C_SEL0": 989, "LPMODE0": 990, "MODPRSL0": 991,
+                                     "LPMODE1": 992, "MODPRSL1": 993, "P1V0_EN_ZYNC": 994}
             self.control_names = self.control_register.keys()
             self.control_register_local = {"FSEL_1_DE": 0, "FSEL_0_DE": 0, "F_CLK_SEL": 0,
-                                            "QSFP_I2C_SEL0": 0, "LPMODE0": 0, "MODPRSL0": 0,
-                                            "LPMODE1": 0, "MODPRSL1": 0, "P1V0_EN_ZYNC": 1}
+                                           "QSFP_I2C_SEL0": 0, "LPMODE0": 0, "MODPRSL0": 0,
+                                           "LPMODE1": 0, "MODPRSL1": 0, "P1V0_EN_ZYNC": 1}
 
             """
              -- *** Control Register bis assignments for register control ***
@@ -121,9 +121,9 @@ class Fem():
                                         self.FSEL_0_DE_set),
                     "SELECTED_FLASH_DEVICE": (self.get_selected_flash, self.set_flash),
                     "FPGA_FLASH_CLK": (lambda: self.read_control_reg("F_CLK_SEL"),
-                                        self.F_CLK_SEL_set),
+                                       self.F_CLK_SEL_set),
                     "QSFP_I2C_BUS_SEL": (lambda: self.read_control_reg("QSFP_I2C_SEL0"),
-                                        self.QSFP_I2C_SEL0_set),
+                                         self.QSFP_I2C_SEL0_set),
                     "QSFP_U20_LPMODE": (lambda: self.read_control_reg("LPMODE0"),
                                         self.LPMODE0_set),
                     "QSFP_U20_MODPRS": (lambda: self.read_control_reg("MODPRSL0"),
@@ -139,43 +139,77 @@ class Fem():
         except ValueError:  # excepts need revision to be meaningful
             print('Non-numeric input detected.')
 
-
     def read_control_reg(self, value):
+        """Read the current value of a control register.
+
+        This method returns the binary value last set to a control register.
+        :param value: Name of control register
+        :return: the binary value of the control register
+        """
         return self.control_register_local.get(value)
 
     # parameter tree wrapper functions for control registers
     def FSEL_1_DE_set(self, value):
-        self.control_register_local["FSEL_1_DE"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["FSEL_1_DE"] = value
         gpio.set(self.control_register.get("FSEL_1_DE"), value)
+
     def FSEL_0_DE_set(self, value):
-        self.control_register_local["FSEL_0_DE"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["FSEL_0_DE"] = value
         gpio.set(self.control_register.get("FSEL_0_DE"), value)
+
     def F_CLK_SEL_set(self, value):
-        self.control_register_local["F_CLK_SEL"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["F_CLK_SEL"] = value
         gpio.set(self.control_register.get("F_CLK_SEL"), value)
+
     def QSFP_I2C_SEL0_set(self, value):
-        self.control_register_local["QSFP_I2C_SEL0"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["QSFP_I2C_SEL0"] = value
         gpio.set(self.control_register.get("QSFP_I2C_SEL0"), value)
+
     def LPMODE0_set(self, value):
-        self.control_register_local["LPMODE0"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["LPMODE0"] = value
         gpio.set(self.control_register.get("LPMODE0"), value)
+
     def MODPRSL0_set(self, value):
-        self.control_register_local["MODPRSL0"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["MODPRSL0"] = value
         gpio.set(self.control_register.get("MODPRSL0"), value)
+
     def LPMODE1_set(self, value):
-        self.control_register_local["LPMODE1"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["LPMODE1"] = value
         gpio.set(self.control_register.get("LPMODE1"), value)
+
     def MODPRSL1_set(self, value):
-        self.control_register_local["MODPRSL1"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["MODPRSL1"] = value
         gpio.set(self.control_register.get("MODPRSL1"), value)
+
     def P1V0_EN_ZYNC_set(self, value):
-        self.control_register_local["P1V0_EN_ZYNC"]=value
+        """Set the control register via GPIO."""
+        self.control_register_local["P1V0_EN_ZYNC"] = value
         gpio.set(self.control_register.get("P1V0_EN_ZYNC"), value)
 
     # SELECTED_FLASH is derived from FSEL_#_DE with FSEL_0 as the Least Significant bit
     def get_selected_flash(self):
+        """Get the currently selected flash.
+
+        This method calculates and returns the currently selected flash from the FSEL registers
+        :return : An integer denoting the selected flash
+        """
         return (self.read_control_reg("FSEL_0_DE") + (2 * self.read_control_reg("FSEL_1_DE")))
+
     def set_flash(self, value):
+        """Set the selected flash.
+
+        This method Set the currently selected flash by setting the FSEL registers
+        as the binary interpretation with FSEL_0 the LSB
+        :param value: Integer representing the flash to be selected
+        """
         value = int(value)
         if value == 0:
             gpio.set(self.control_register.get("FSEL_1_DE"), 0)
@@ -202,32 +236,43 @@ class Fem():
 
     # parameter tree wrapper functions for gpio.set for reset registers
     def ZYNC_F_RST_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("ZYNC_F_RST"), value)
+
     def ZYNC_FW_RST_N_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("ZYNC_FW_RST_N"), value)
+
     def RESETL0_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("RESETL0"), value)
+
     def RESETL1_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("RESETL1"), value)
+
     def V7_INIT_B_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("V7_INIT_B"), value)
+
     def V7_PRG_ZY_set(self, value):
+        """Set the reset register via GPIO."""
         gpio.set(self.reset_register.get("V7_PRG_ZY"), value)
 
-
     def gpio_setup(self):
-        """This sets the GPIO registers up"""
-        for key, val in  self.status_register.items():
+        """Set up the GPIO registers."""
+        for key, val in self.status_register.items():
             gpio.setup(val, "in")
-        for key, val in  self.reset_register.items():
+        for key, val in self.reset_register.items():
             gpio.setup(val, "out")
-        for key, val in  self.control_register.items():
+        for key, val in self.control_register.items():
             gpio.setup(val, "out")
             gpio.set(val, self.control_register_local[key])
 
     def get(self, path, wants_metadata=False):
-        """Main get method for the parameter tree"""
+        """Get the parameter tree."""
         return self.param_tree.get(path, wants_metadata)
+
     def set(self, path, data):
-        """Main set method for the parameter tree"""
+        """Set the parameter tree."""
         return self.param_tree.set(path, data)

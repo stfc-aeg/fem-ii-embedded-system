@@ -46,7 +46,7 @@ class App {
         this.error_message = document.createTextNode("");
         error_bar.appendChild(this.error_message);
 
-        //
+        //Create progress bar
         var container = document.createElement("div");
         container.id = "femii-container";
         container.innerHTML = `<div id="prog_container" hidden>
@@ -54,6 +54,7 @@ class App {
             <progress id="prog_bar" value="10" max="10"></progress>
         </div>
         `;
+        //Create adapters
         for(var adapter in meta) {
             adapters[adapter] = new Adapter(this, adapter);
             container.innerHTML += adapters[adapter].generate(meta[adapter]);
@@ -72,12 +73,14 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     init(meta) {
+        //setup all adapters
         for (var adapter in meta){
             adapters[adapter].init();
         }
     }
 
     update(adapter=this.main_adapter) {
+        //update selected adapter controls from the server
             apiGET(adapter, "")
             .done((function(data) {
                 adapters[adapter].update(data);
@@ -89,6 +92,7 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     put(adapter, path, val) {
+        //promisify out command
         return (apiPUT(adapter, path, val)
         .done(
             this.update(adapter)
@@ -97,6 +101,7 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     setEnabled(state){
+        //allow or block user interactivity
         if (state == 0) {
             $("#femii-container").addClass("disabled");
         } else {
@@ -106,6 +111,7 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     setError(data) {
+        //handle json versus non json errors
         if (data.hasOwnProperty("json")) {
             var json = data.responseJSON;
             if (json.hasOwnProperty("error"))
@@ -117,6 +123,7 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     showError(msg) {
+        //show errors on the error bar
         if (typeof msg == 'undefined') msg = 'Connection to Odin Server lost'
         if (this.error_timeout !== null)
             clearTimeout(this.error_timeout);
@@ -125,6 +132,7 @@ Odin server: <a href="https://github.com/stfc-aeg/odin-control">github.com/stfc-
     }
 
     clearError() {
+        //clear the error bar
         this.error_message.nodeValue = "";
     }
 }

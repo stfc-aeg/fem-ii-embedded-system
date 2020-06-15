@@ -1,4 +1,5 @@
 class StatusBox {
+    //create a colour changing box for get only controls
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
@@ -17,6 +18,7 @@ class StatusBox {
     }
     
     update(data) {
+        //When updating ensure the colour shows the current state
         if(data === this.value) return;
         this.value = data;
         if (data == 0) {

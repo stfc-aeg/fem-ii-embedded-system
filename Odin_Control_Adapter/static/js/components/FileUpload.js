@@ -1,4 +1,5 @@
 class FileUpload {
+    //Create a control for uploading files
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
@@ -27,15 +28,24 @@ class FileUpload {
     
         this.elementBtn.addEventListener("click", this.onClick.bind(this));
         this.reader.onload = function(evt) {
+            //Disable interactivity till upload finished
             self.adapter.app.setEnabled(0);
+            //Extract the file name
             this.fileName =  self.elementFile.files.item(0).name;
+            //Split the file into chunks of approximately 1MB
             this.fileChunks = btoa(evt.target.result).match(/.{1,1000000}/g);
+
+            //Setup the progress bar
             self.progressBar.max = (this.fileChunks.length + 1);
             self.progressBar.value = 0;
             self.progressContainer.hidden = false;
+
+            //Send the setup put command telling the server the filename and number of chunks
             self.adapter.put(self.path,
                  JSON.stringify([(-1*(this.fileChunks.length)), this.fileName]))
                  .then(self.progressBar.value += 1);
+
+            //Send the chunks including their position in the file
             var promises = [];
             for (var i = 0; i < this.fileChunks.length;i++) {
                 promises.push(
@@ -43,6 +53,8 @@ class FileUpload {
                     .then(setTimeout(function(){ self.progressBar.value += 1 }, i * 400))
                 );
             }
+
+            //When all chunks have been sent call fulfil
             $.when.apply($, promises)
                 .then(self.fulfil())
         };
@@ -55,11 +67,13 @@ class FileUpload {
     }
 
     fulfil(){
+        //enable interactivity and hide the progress bar
         this.adapter.app.setEnabled(1);
         this.progressContainer.hidden = true;
     }
 
     onClick() {
+        //read in the selected file as binary then calls readers onload function
         this.reader.readAsBinaryString(this.elementFile.files[0]);
     }
 

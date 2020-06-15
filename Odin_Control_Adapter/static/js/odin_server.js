@@ -1,8 +1,8 @@
+//Provides basic functions for the odin server
 var api_version = "0.1";
 var adapters = [];
 
-function initAPI()
-{
+function initAPI() {
     //Get the current api version and adapters
 
     return $.ajax("/api", {
@@ -33,8 +33,8 @@ function initAPI()
     );
 }
 
-function apiGET(adapter, path, metadata=false)
-{
+function apiGET(adapter, path, metadata=false) {
+    // constructs an ajax get command for the given adapter and path
     return $.ajax(`api/${api_version}/${adapter}/${path}`, {
         method: "GET",
         dataType: "json",
@@ -44,8 +44,8 @@ function apiGET(adapter, path, metadata=false)
     });
 }
 
-function apiPUT(adapter, path, data)
-{
+function apiPUT(adapter, path, data) {
+    // constructs an ajax put command for the given adapter, path and data
     return $.ajax(`api/${api_version}/${adapter}/${path}`, {
         method: "PUT",
         contentType: "application/json",

@@ -1,4 +1,5 @@
 class FileSelect {
+    //Adds control for programming the selected flash on the FEM with the selected bin file
     constructor(adapter, path, data) {
         this.adapter = adapter;
         this.id = path.split("/").reverse()[0];
