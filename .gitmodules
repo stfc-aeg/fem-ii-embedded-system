@@ -1,36 +1,7 @@
 [submodule "bsp-xilinx"]
 	path = bsp-xilinx
 	url = https://github.com/enclustra-bsp/bsp-xilinx.git
-[submodule "odin-control"]
-	path = deployment/fem_boot_n_root/root/odin-control
-	url = https://github.com/stfc-aeg/odin-control.git
-[submodule "qem-detector"]
-	path = deployment/fem_boot_n_root/root/qem-detector
-	url = https://github.com/stfc-aeg/qem-detector.git
-[submodule "buildroot_rootfs"]
-	path = out_femii_linux/buildroot-rootfs
-	url = https://github.com/enclustra-bsp/busybox-rootfs
-[submodule "xilinx-linux"]
-        path = out_femii_linux/xilinx-linux
-        url = https://github.com/enclustra-bsp/xilinx-linux
-[submodule "xilinx-linux-rt"]
-        path = out_femii_linux/xilinx-linux-rt
-        url = https://github.com/enclustra-bsp/xilinx-linux
-[submodule "xilinx-uboot"]
-        path = out_femii_linux/xilinx-uboot
-        url = https://github.com/enclustra-bsp/xilinx-uboot
 [submodule "out_stfc_femii_MMC"]
 	path = out_stfc_femii_MMC
 	url = git@github.com:stfc-aeg/out_stfc_femii_MMC.git
-[submodule "femii-odin-control"]
-	path = out_stfc_femii_MMC/overlays/usr/femii/femii-odin-control
-	url = git@github.com:stfc-aeg/femii-odin-control.git
-[submodule "buildroot-rootfs"]
-	path = out_stfc_femii_MMC/buildroot-rootfs
-	url = git@github.com:stfc-aeg/buildroot-rootfs.git
-[submodule "xilinx-linux"]
-	path = out_stfc_femii_MMC/xilinx-linux
-	url = git@github.com:enclustra-bsp/xilinx-linux.git
-[submodule "xilinx-uboot"]
-	path = bout_stfc_femii_MMC/xilinx-uboot
-	url = git@github.com:enclustra-bsp/xilinx-uboot.git
+
