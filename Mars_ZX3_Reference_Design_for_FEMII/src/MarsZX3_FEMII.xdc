@@ -131,6 +131,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports Vref0]
 set_property PACKAGE_PIN T6 [get_ports Vref1]
 set_property IOSTANDARD LVCMOS33 [get_ports Vref1]
 
+
 # ----------------------------------------------------------------------------------
 # -- i2-port
 # ----------------------------------------------------------------------------------

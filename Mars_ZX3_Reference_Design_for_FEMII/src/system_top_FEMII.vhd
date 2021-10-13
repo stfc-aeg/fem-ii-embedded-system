@@ -488,7 +488,7 @@ begin
     QSFP_I2C_SEL0 <= control_reg(3);
     LPMODE0 <= control_reg(4);
     LPMODE1 <= control_reg(5);
-    P1V0_EN_ZYNC <= control_reg(6); 
+    P1V0_EN_ZYNC <= NOT control_reg(6); 
   
 
 
