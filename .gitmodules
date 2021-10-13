@@ -23,14 +23,14 @@
 	path = out_stfc_femii_MMC
 	url = git@github.com:stfc-aeg/out_stfc_femii_MMC.git
 [submodule "femii-odin-control"]
-	path = bsp-xilinx/out_stfc_femii_MMC/overlays/usr/femii/femii-odin-control
+	path = out_stfc_femii_MMC/overlays/usr/femii/femii-odin-control
 	url = git@github.com:stfc-aeg/femii-odin-control.git
 [submodule "buildroot-rootfs"]
-	path = bsp-xilinx/out_stfc_femii_MMC/buildroot-rootfs
+	path = out_stfc_femii_MMC/buildroot-rootfs
 	url = git@github.com:stfc-aeg/buildroot-rootfs.git
 [submodule "xilinx-linux"]
-	path = bsp-xilinx/out_stfc_femii_MMC/xilinx-linux
+	path = out_stfc_femii_MMC/xilinx-linux
 	url = git@github.com:enclustra-bsp/xilinx-linux.git
 [submodule "xilinx-uboot"]
-	path = bsp-xilinx/out_stfc_femii_MMC/xilinx-uboot
+	path = bout_stfc_femii_MMC/xilinx-uboot
 	url = git@github.com:enclustra-bsp/xilinx-uboot.git
