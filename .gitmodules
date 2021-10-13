@@ -21,3 +21,6 @@
         url = https://github.com/enclustra-bsp/xilinx-uboot
 
 
+[submodule "out_stfc_femii_MMC"]
+	path = out_stfc_femii_MMC
+	url = git@github.com:stfc-aeg/out_stfc_femii_MMC.git
