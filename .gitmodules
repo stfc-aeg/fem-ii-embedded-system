@@ -1,3 +1,15 @@
 [submodule "bsp-xilinx"]
 	path = bsp-xilinx
 	url = git@github.com:stfc-aeg/bsp-xilinx.git
+[submodule "bsp-xilinx/out_stfc_femii/buildroot-rootfs"]
+	path = bsp-xilinx/out_stfc_femii/buildroot-rootfs
+	url = git@github.com:stfc-aeg/buildroot-rootfs.git
+[submodule "bsp-xilinx/out_stfc_femii/xilinx-linux"]
+	path = bsp-xilinx/out_stfc_femii/xilinx-linux
+	url = git@github.com:enclustra-bsp/xilinx-linux.git
+[submodule "bsp-xilinx/out_stfc_femii/xilinx-uboot"]
+	path = bsp-xilinx/out_stfc_femii/xilinx-uboot
+	url = git@github.com:enclustra-bsp/xilinx-uboot.git
+[submodule "overlays/usr/femii/femii-odin-control"]
+	path = overlays/usr/femii/femii-odin-control
+	url = git@github.com:stfc-aeg/femii-odin-control.git
